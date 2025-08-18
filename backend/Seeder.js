@@ -27,9 +27,15 @@ const importData = async () => {
         });
         for(const ques of obj.ques){
             if((!ques.title) || (!ques.yt_link)) continue;
+            const difficulties = ["easy", "medium", "hard"];
+            const randomDifficulty = difficulties[Math.floor(Math.random() * difficulties.length)];
+            
             const newQuestion = await Question.create({
-                title: ques.title,
-                url: ques.yt_link,
+              title: ques.title,
+              tutorial: ques.yt_link,
+              prob1: ques.p1_link,
+              prob2: ques.p2_link,
+              difficulty: randomDifficulty,
             });
             await newQuestion.save()
             newCategory.questions.push(newQuestion._id);

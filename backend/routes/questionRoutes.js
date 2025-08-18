@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const { search, page, limit } = req.query;
+    const { search , page , limit } = req.query;
 
     let questions = await Question.find();
     if (search) {
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
       );
     }
     const startIndex = (page - 1) * limit;
-    const endIndex = startIndex + limit;
+    const endIndex = Number(startIndex) + Number(limit);
     questions = questions.slice(startIndex, endIndex);
     res.json(questions);
   } catch (error) {

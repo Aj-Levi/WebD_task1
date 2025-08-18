@@ -6,10 +6,23 @@ const questionSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  url: {
+  tutorial: {
     type: String,
     required: true,
     trim: true,
+  },
+  prob1: {
+    type: String,
+    trim: true,
+  },
+  prob2: {
+    type: String,
+    trim: true,
+  },
+  difficulty: {
+    type: String,
+    enum: ["easy", "medium", "hard"],
+    default: "medium",
   },
 },{
     timestamps: true,

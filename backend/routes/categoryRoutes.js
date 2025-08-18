@@ -10,7 +10,10 @@ router.get("/", async (req, res) => {
 
     let categories = await Category.find().populate("questions").exec();
     const startIndex = (page - 1) * limit;
-    const endIndex = startIndex + limit;
+    const endIndex = Number(startIndex) + Number(limit);
+
+    console.log(startIndex);
+    console.log(endIndex);
     categories = categories.slice(startIndex, endIndex);
     res.json(categories);
   } catch (error) {
