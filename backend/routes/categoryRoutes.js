@@ -12,8 +12,6 @@ router.get("/", async (req, res) => {
     const startIndex = (page - 1) * limit;
     const endIndex = Number(startIndex) + Number(limit);
 
-    console.log(startIndex);
-    console.log(endIndex);
     categories = categories.slice(startIndex, endIndex);
     res.json(categories);
   } catch (error) {

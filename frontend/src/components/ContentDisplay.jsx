@@ -38,13 +38,14 @@ const ContentDisplay = () => {
   return (
     <div className="w-full max-w-3xl mx-auto">
       <div className="mb-6">
-        <div className="relative">
-          <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+        <div className="relative border-[1px] border-[var(--color-primary)] rounded-lg">
+          <div className="absolute inset-y-0 start-0 flex items-center pl-3">
             <svg className="w-4 h-4 text-[var(--color-primary)]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
             </svg>
           </div>
           <input 
+            id="search"
             type="text" 
             placeholder="Search questions..." 
             value={search}

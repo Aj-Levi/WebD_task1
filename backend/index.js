@@ -3,7 +3,6 @@ import dotenv from "dotenv"
 import connectDB from "./config/ConnectDB.js"
 import categoryRoutes from "./routes/categoryRoutes.js"
 import questionRoutes from "./routes/questionRoutes.js"
-import userRoutes from "./routes/userRoutes.js"
 import cors from "cors"
 
 dotenv.config()
@@ -20,7 +19,6 @@ app.use(express.json());
 
 app.use("/api/categories", categoryRoutes);
 app.use("/api/questions", questionRoutes);
-app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
