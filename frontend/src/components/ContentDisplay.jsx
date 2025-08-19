@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import QuestionsDisplay from './QuestionsDisplay';
 import CategoriesDisplay from './CategoriesDisplay';
 
-const ContentDisplay = () => {
+const ContentDisplay = ({ BACKEND_URL }) => {
     const [categories, setCategories] = useState([]);
     const [filteredQues, setFilteredQues] = useState([]);
     const [search, setSearch] = useState("")
@@ -11,7 +11,7 @@ const ContentDisplay = () => {
 
     useEffect(() => {
       const getData = async () => {
-        const response = await fetch(`http://localhost:3000/api/categories?page=${category_page}&limit=5`)
+        const response = await fetch(`${BACKEND_URL}/api/categories?page=${category_page}&limit=5`)
         const data = await response.json()
         console.log(data);
         setCategories(data)
@@ -22,7 +22,7 @@ const ContentDisplay = () => {
     useEffect(() => {
         if(search){
             const getData = async () => {
-              const response = await fetch(`http://localhost:3000/api/questions?search=${search}&page=${question_page}&limit=10`)
+              const response = await fetch(`${BACKEND_URL}/api/questions?search=${search}&page=${question_page}&limit=10`)
               const data = await response.json()
               console.log(data);
               setFilteredQues(data)
